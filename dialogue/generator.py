@@ -1,5 +1,5 @@
 """
-This script defines a function to generate a response from a generative AI model using JSON schema validation.
+This module defines a function to generate a response from a generative AI model using JSON schema validation.
 
 It imports necessary libraries, sets up a schema for the expected response format, and defines a function
 to generate content based on a given prompt. The generated response is parsed from JSON format into a Python dictionary.
