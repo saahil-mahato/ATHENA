@@ -1,5 +1,5 @@
 """
-This script contains unit tests for the `generate_response` function from the `dialogue.generator` module.
+This module contains unit tests for the `generate_response` function from the `dialogue.generator` module.
 It uses the `pytest` testing framework and `unittest.mock` to mock the behavior of the generative AI model's 
 content generation method.
 
