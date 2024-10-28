@@ -55,7 +55,3 @@ def test_generate_response_keys(mock_generate_content):
 
     # Assert that the result contains exactly two keys
     assert len(result) == 2
-
-
-if __name__ == "__main__":
-    pytest.main()
