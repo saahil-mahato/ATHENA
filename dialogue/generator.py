@@ -17,7 +17,7 @@ schema = Schema(
 )
 
 
-def generate_response(prompt: str) -> str:
+def generate_response(prompt: str) -> dict:
     response = model.generate_content(
         contents=prompt,
         generation_config=genai.GenerationConfig(
