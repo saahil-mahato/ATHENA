@@ -17,7 +17,7 @@ def sample_memory():
         timestamp=datetime.now(),
         content="Sample memory",
         importance=5.0,
-        tags=["test", "memory"]
+        tags=["test", "memory"],
     )
 
 
@@ -38,9 +38,27 @@ def test_add_memory(memory_manager, sample_memory):
 
 def test_clean_memories(memory_manager):
     # Add memories with varying importance
-    mem1 = Memory(id=uuid.uuid4(), timestamp=datetime.now(), content="Memory 1", importance=1.0, tags=["a"])
-    mem2 = Memory(id=uuid.uuid4(), timestamp=datetime.now(), content="Memory 2", importance=2.0, tags=["b"])
-    mem3 = Memory(id=uuid.uuid4(), timestamp=datetime.now(), content="Memory 3", importance=3.0, tags=["c"])
+    mem1 = Memory(
+        id=uuid.uuid4(),
+        timestamp=datetime.now(),
+        content="Memory 1",
+        importance=1.0,
+        tags=["a"],
+    )
+    mem2 = Memory(
+        id=uuid.uuid4(),
+        timestamp=datetime.now(),
+        content="Memory 2",
+        importance=2.0,
+        tags=["b"],
+    )
+    mem3 = Memory(
+        id=uuid.uuid4(),
+        timestamp=datetime.now(),
+        content="Memory 3",
+        importance=3.0,
+        tags=["c"],
+    )
 
     memory_manager.add_memory(mem1)
     memory_manager.add_memory(mem2)
@@ -49,7 +67,13 @@ def test_clean_memories(memory_manager):
     assert len(memory_manager.memories) == 3
 
     # Add another memory to trigger cleaning
-    mem4 = Memory(id=uuid.uuid4(), timestamp=datetime.now(), content="Memory 4", importance=0.5, tags=["d"])
+    mem4 = Memory(
+        id=uuid.uuid4(),
+        timestamp=datetime.now(),
+        content="Memory 4",
+        importance=0.5,
+        tags=["d"],
+    )
     memory_manager.add_memory(mem4)
 
     # After adding mem4, mem1 (the lowest importance) should be removed
@@ -60,7 +84,13 @@ def test_clean_memories(memory_manager):
 def test_decay_memory(memory_manager):
     # Add a memory with a specific timestamp and importance
     past_time = datetime.now() - timedelta(hours=10)
-    mem = Memory(id=uuid.uuid4(), timestamp=past_time, content="Old Memory", importance=5.0, tags=["e"])
+    mem = Memory(
+        id=uuid.uuid4(),
+        timestamp=past_time,
+        content="Old Memory",
+        importance=5.0,
+        tags=["e"],
+    )
 
     memory_manager.add_memory(mem)
 

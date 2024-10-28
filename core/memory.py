@@ -26,16 +26,21 @@ class MemoryManager:
         self.memories.append(memory)
 
     def clean_memories(self) -> None:
-        min_importance: float = float('inf')
+        min_importance: float = float("inf")
         earliest_memory: Memory = self.memories[0]
 
         for memory in self.memories:
             if memory.importance < min_importance:
                 min_importance = memory.importance
-                earliest_memory = memory  # Reset to current memory if a new minimum is found
+                earliest_memory = (
+                    memory  # Reset to current memory if a new minimum is found
+                )
             elif memory.importance == min_importance:
                 # Compare timestamps if importance is the same
-                if earliest_memory is None or memory.timestamp < earliest_memory.timestamp:
+                if (
+                    earliest_memory is None
+                    or memory.timestamp < earliest_memory.timestamp
+                ):
                     earliest_memory = memory
 
         self.memories.remove(earliest_memory)
